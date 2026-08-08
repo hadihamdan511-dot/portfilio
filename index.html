@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>hamdancs.online — Custom Websites, QR Systems &amp; Print Design</title>
+<meta name="description" content="hamdancs.online: custom, multi-language websites, unlimited QR ordering systems, and print design — taking businesses from simple to professional." />
+<meta name="theme-color" content="#F7F2EA" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: '#F7F2EA',
+          paper: '#FBF8F2',
+          ink: '#211D2B',
+          inkfade: '#6B6675',
+          sage: '#5F7D67',
+          sagelight: '#8FAE96',
+          apricot: '#E7A15E',
+          apricotdeep: '#CE7F3B',
+          plum: '#7C5C74',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Plus Jakarta Sans', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F7F2EA;
+    color: #211D2B;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: #E7A15E; color: #211D2B; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #F7F2EA; }
+  ::-webkit-scrollbar-thumb { background: #CE7F3B; border-radius: 4px; }
+
+  .eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #CE7F3B; font-weight: 600; }
+  .hairline { height:1px; background: linear-gradient(90deg, transparent, rgba(33,29,43,0.14), transparent); }
+
+  .btn-primary {
+    background: #211D2B; color: #F7F2EA; padding: 15px 30px; font-size: 14px; font-weight: 600;
+    border-radius: 100px; transition: all 0.3s cubic-bezier(.16,1,.3,1);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: #5F7D67; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(95,125,103,0.35); }
+
+  .btn-outline {
+    border: 1.5px solid rgba(33,29,43,0.25); color: #211D2B; padding: 14px 28px; font-size: 14px; font-weight: 600;
+    border-radius: 100px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: #211D2B; background: rgba(33,29,43,0.04); }
+
+  .reveal { opacity:0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1); }
+  .reveal.visible { opacity:1; transform: translateY(0); }
+
+  .card { background: #FBF8F2; border: 1px solid rgba(33,29,43,0.08); border-radius: 22px; transition: all 0.4s cubic-bezier(.16,1,.3,1); }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(33,29,43,0.08); border-color: rgba(95,125,103,0.3); }
+
+  .step-num { font-family: 'Fraunces', serif; font-optical-sizing: auto; font-weight: 600; font-style: italic; }
+
+  .nav-link { position: relative; color: #211D2B; opacity: 0.75; transition: opacity 0.25s ease; }
+  .nav-link:hover { opacity: 1; }
+
+  .grain { background-image: radial-gradient(rgba(33,29,43,0.035) 1px, transparent 1px); background-size: 3px 3px; }
+
+  .frame { border-radius: 16px; overflow: hidden; box-shadow: 0 25px 60px rgba(33,29,43,0.16); border: 1px solid rgba(33,29,43,0.08); aspect-ratio: 1 / 1; }
+  .frame img { display:block; width:100%; height:100%; object-fit: cover; }
+
+  .device-frame { background: #211D2B; border-radius: 26px; padding: 12px 12px 16px; box-shadow: 0 25px 60px rgba(33,29,43,0.22); }
+  .device-frame .notch { width: 56px; height: 5px; border-radius: 4px; background: rgba(247,242,234,0.25); margin: 0 auto 10px; }
+  .device-frame .frame { border-radius: 14px; box-shadow: none; border: none; }
+  .work-caption { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B6675; text-align: center; margin-top: 12px; }
+
+  .chevron-mark { filter: drop-shadow(0 6px 14px rgba(206,127,59,0.35)); }
+
+  @media (max-width: 640px) { .hero-title { font-size: 2.5rem !important; line-height: 1.1 !important; } }
+</style>
+</head>
+<body class="grain">
+
+<!-- NAV -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur border-b border-ink/8">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 md:px-10 py-5">
+    <a href="#top" class="flex items-center gap-2.5">
+      <svg width="30" height="30" viewBox="0 0 40 40" class="chevron-mark">
+        <path d="M6 28 L14 16 L20 24 L34 8" stroke="#CE7F3B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 8 L34 8 L34 16" stroke="#5F7D67" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="font-serif text-lg font-semibold tracking-tight">hamdancs<span class="text-apricotdeep">.online</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-9 text-sm font-medium">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#why" class="nav-link">Why Us</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <a href="https://wa.me/96178914570" target="_blank" class="hidden md:inline-flex btn-primary !py-2.5 !px-5 !text-xs">
+      <span>Message on WhatsApp</span>
+    </a>
+    <button id="menuToggle" class="md:hidden p-2" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#211D2B" stroke-width="1.8"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+  <div id="mobilePanel" class="md:hidden bg-paper/95 backdrop-blur max-h-0 overflow-hidden transition-all duration-400">
+    <div class="flex flex-col px-6 py-4 gap-1 text-sm font-medium">
+      <a href="#services" class="py-3 border-b border-ink/10 mlink">Services</a>
+      <a href="#work" class="py-3 border-b border-ink/10 mlink">Work</a>
+      <a href="#why" class="py-3 border-b border-ink/10 mlink">Why Us</a>
+      <a href="#contact" class="py-3 mlink text-apricotdeep font-semibold">Contact</a>
+      <a href="https://wa.me/96178914570" target="_blank" class="btn-primary justify-center mt-3">Message on WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative min-h-screen flex items-center px-6 md:px-10 pt-32 pb-20 overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-sagelight/20 blur-3xl"></div>
+  <div class="absolute bottom-0 -left-24 w-96 h-96 rounded-full bg-apricot/20 blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center w-full">
+    <div class="reveal visible">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ink/10 bg-paper mb-7">
+        <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+        <span class="eyebrow !text-ink/60">Custom Web &amp; Brand Design — Lebanon</span>
+      </div>
+      <h1 class="hero-title font-serif text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight mb-6">
+        From simple to <span class="italic text-apricotdeep">professional.</span>
+      </h1>
+      <p class="text-inkfade text-lg leading-relaxed max-w-lg mb-9 font-light">
+        We build custom, multi-language websites with secure hosting, logo design,
+        and QR codes that lead straight to your site — everything a business needs
+        to stop looking like a work in progress.
+      </p>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://wa.me/96178914570" target="_blank" class="btn-primary">
+          <span>Message on WhatsApp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#work" class="btn-outline"><span>See the work</span></a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE: ascending steps -->
+    <div class="reveal visible relative h-[420px] hidden lg:block" style="transition-delay:.15s">
+      <svg viewBox="0 0 340 420" class="w-full h-full">
+        <path class="step-path" d="M40 380 L110 320 L170 260 L230 190 L290 100" stroke="#CE7F3B" stroke-width="2" fill="none" opacity="0.4" stroke-dasharray="6 8"/>
+        <g class="stepgroup" style="transition-delay:.1s"><rect x="15" y="368" width="60" height="14" rx="4" fill="#5F7D67"/><circle cx="40" cy="380" r="7" fill="#211D2B"/></g>
+        <g class="stepgroup" style="transition-delay:.3s"><rect x="85" y="308" width="60" height="14" rx="4" fill="#5F7D67" opacity="0.85"/><circle cx="110" cy="320" r="7" fill="#211D2B"/></g>
+        <g class="stepgroup" style="transition-delay:.5s"><rect x="145" y="248" width="60" height="14" rx="4" fill="#E7A15E" opacity="0.9"/><circle cx="170" cy="260" r="7" fill="#211D2B"/></g>
+        <g class="stepgroup" style="transition-delay:.7s"><rect x="205" y="178" width="60" height="14" rx="4" fill="#E7A15E"/><circle cx="230" cy="190" r="7" fill="#211D2B"/></g>
+        <g class="stepgroup" style="transition-delay:.9s">
+          <circle cx="290" cy="100" r="26" fill="#211D2B"/>
+          <path d="M280 100 L288 108 L300 92" stroke="#E7A15E" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text x="248" y="70" class="font-serif italic" font-size="15" fill="#211D2B" font-style="italic">professional</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SIMPLE TO PROFESSIONAL -->
+<section class="relative px-6 md:px-10 py-20 md:py-28 bg-ink text-cream overflow-hidden">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-apricot/10 blur-3xl"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow !text-apricot mb-3">The Upgrade</p>
+      <h2 class="font-serif text-3xl md:text-4xl font-semibold tracking-tight leading-snug mb-6">
+        Most businesses run on a Facebook page and word of mouth. That works —
+        until a bigger competitor shows up.
+      </h2>
+      <p class="text-cream/60 font-light leading-relaxed text-lg">
+        We take a business from simple to professional in one pass: a real website in
+        every language your customers speak, a logo that looks intentional, and a QR
+        code that puts your whole business one scan away.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="relative px-6 md:px-10 py-24 md:py-32 bg-paper border-b border-ink/8">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-xl mb-16 reveal">
+      <p class="eyebrow mb-3">What We Build</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
+        Everything your business needs to look — and run — like a bigger one.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card p-8 reveal">
+        <span class="step-num text-4xl text-apricotdeep">01</span>
+        <h3 class="font-serif text-2xl font-semibold mt-4 mb-3">Websites &amp; Secure Hosting</h3>
+        <p class="text-inkfade leading-relaxed font-light">A custom, multi-language website — we register the domain, host it securely, keep it live, and update it whenever something needs to change.</p>
+      </div>
+      <div class="card p-8 reveal" style="transition-delay:.1s">
+        <span class="step-num text-4xl text-apricotdeep">02</span>
+        <h3 class="font-serif text-2xl font-semibold mt-4 mb-3">Logo &amp; Brand Design</h3>
+        <p class="text-inkfade leading-relaxed font-light">A logo and identity built for your business, not picked off a template — the foundation everything else is designed around.</p>
+      </div>
+      <div class="card p-8 reveal" style="transition-delay:.2s">
+        <span class="step-num text-4xl text-apricotdeep">03</span>
+        <h3 class="font-serif text-2xl font-semibold mt-4 mb-3">QR Codes To Your Site</h3>
+        <p class="text-inkfade leading-relaxed font-light">A QR code that takes customers straight to your website — always current, nothing to reprint every time something changes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="relative px-6 md:px-10 py-24 md:py-32">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-xl mb-14 reveal">
+      <p class="eyebrow mb-3">Example Of Our Work</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight">The Bevview — a full build, start to finish</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start mb-10">
+      <div class="reveal">
+        <div class="device-frame">
+          <div class="notch"></div>
+          <div class="frame">
+            <img src="images/work-site.jpg.jpeg" alt="The Bevview custom website, mobile view" />
+          </div>
+        </div>
+        <p class="work-caption">The Website — Mobile View</p>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="device-frame">
+          <div class="notch"></div>
+          <div class="frame">
+            <img src="images/pic.jpg.jpeg" alt="The Bevview website menu page, mobile view" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <p class="text-inkfade leading-relaxed font-light text-lg reveal">
+        Customers used to have to open Instagram and dig through the highlights just to
+        find the menu. Now they scan the QR code on the table and it's right there.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 reveal" style="transition-delay:.15s">
+        <div class="p-5 rounded-xl bg-paper border border-ink/8">
+          <p class="font-serif text-3xl text-sage font-semibold">EN / AR</p>
+          <p class="text-xs text-inkfade mt-1 uppercase tracking-wide">Multi-language site</p>
+        </div>
+        <div class="p-5 rounded-xl bg-paper border border-ink/8">
+          <p class="font-serif text-3xl text-sage font-semibold">50+</p>
+          <p class="text-xs text-inkfade mt-1 uppercase tracking-wide">QR codes deployed</p>
+        </div>
+        <div class="p-5 rounded-xl bg-paper border border-ink/8">
+          <p class="font-serif text-3xl text-sage font-semibold">Custom</p>
+          <p class="text-xs text-inkfade mt-1 uppercase tracking-wide">Logo &amp; brand</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 reveal" style="transition-delay:.2s">
+      <a href="https://wa.me/96178914570" target="_blank" class="btn-outline"><span>Want your business to look like this?</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="relative px-6 md:px-10 py-24 md:py-32 bg-ink text-cream overflow-hidden">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-apricot/10 blur-3xl"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="max-w-xl mb-14 reveal">
+      <p class="eyebrow !text-apricot mb-3">Why hamdancs.online</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight">Built to last, not just to launch.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="reveal">
+        <div class="w-11 h-11 rounded-full bg-sagelight/20 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8FAE96" stroke-width="2"><path d="M8 12l2.5 2.5L16 9"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-semibold mb-2">Direct, always</h3>
+        <p class="text-cream/55 font-light leading-relaxed text-sm">You work straight with the team behind your site — not a call center relaying messages.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="w-11 h-11 rounded-full bg-apricot/20 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E7A15E" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-semibold mb-2">One matching system</h3>
+        <p class="text-cream/55 font-light leading-relaxed text-sm">Your website, logo, and QR all come from the same build — nothing looks bolted on.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="w-11 h-11 rounded-full bg-plum/25 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a8c3" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-semibold mb-2">We stick around</h3>
+        <p class="text-cream/55 font-light leading-relaxed text-sm">Launch day isn't the finish line. Updates and small changes are part of the deal, not a new invoice every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="relative px-6 md:px-10 py-24 md:py-32">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <p class="eyebrow mb-3">Let's Build</p>
+    <h2 class="font-serif text-4xl md:text-6xl font-semibold tracking-tight mb-6">Ready to level up?</h2>
+    <p class="text-inkfade text-lg font-light mb-10 max-w-lg mx-auto">
+      Send us a message and tell us about your business — we'll tell you what it needs.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/96178914570" target="_blank" class="btn-primary !px-9 !py-4 !text-base">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 1 1-4-7.2"/><path d="M21 11.5 12 12l1-9"/></svg>
+        <span>+961 78 914 570</span>
+      </a>
+      <a href="tel:+96178914570" class="btn-outline !px-9 !py-4 !text-base">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call +961 78 914 570</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="px-6 md:px-10 py-10 border-t border-ink/10">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2.5">
+      <svg width="22" height="22" viewBox="0 0 40 40">
+        <path d="M6 28 L14 16 L20 24 L34 8" stroke="#CE7F3B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 8 L34 8 L34 16" stroke="#5F7D67" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="font-serif font-semibold">hamdancs<span class="text-apricotdeep">.online</span></span>
+    </div>
+    <p class="text-xs text-inkfade">© 2026 hamdancs.online.</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const panel = document.getElementById('mobilePanel');
+  let open = false;
+  toggle.addEventListener('click', () => {
+    open = !open;
+    panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
+  });
+  document.querySelectorAll('.mlink').forEach(l => l.addEventListener('click', () => { open=false; panel.style.maxHeight='0px'; }));
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  const stepgroups = document.querySelectorAll('.stepgroup');
+  stepgroups.forEach(g => { g.style.opacity = 0; g.style.transition = 'opacity .6s ease'; });
+  const stepObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        stepgroups.forEach((g,i) => setTimeout(() => g.style.opacity = 1, i*180));
+        stepObs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  const heroSvg = document.querySelector('#top svg');
+  if (heroSvg) stepObs.observe(heroSvg);
+</script>
+</body>
+</html>
